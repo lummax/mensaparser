@@ -1,6 +1,6 @@
 (defproject mensaparser "0.1.0-SNAPSHOT"
   :description "A 'Studentenwerk Bremen' to openmensa.org converter"
-  :url "http://example.com/FIXME"
+  :url "https://github.com/lummax/mensaparser"
   :license {:name "MIT License"
             :url "http://www.opensource.org/licenses/mit-license.php"
             :distribution :repo}
