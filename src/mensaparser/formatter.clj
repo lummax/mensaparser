@@ -32,7 +32,7 @@
   (if (not-empty (day :categories))
     (vec (concat
            [:day {:date (day :date)}]
-           (mapv category-mapper (day :categories))))))
+           (mapv category-mapper (filter #(not-empty (% :meals)) (day :categories)))))))
 
 (defn format-food-plan
   [food-plan]
