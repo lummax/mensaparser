@@ -14,7 +14,7 @@
 
 (defn get-food-plan-data
   [url]
-  (html/html-resource (java.net.URL. url)))
+  (html/select (html/html-resource (java.net.URL. url)) [:div.inside]))
 
 (defn extract-content
   [data selection]
