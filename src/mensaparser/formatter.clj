@@ -13,8 +13,9 @@
   [meal]
   [:meal {}
    [:name {} (meal :description)]
-   (if (not-empty (meal :notes))
-     [:note {} (string/join ", " (meal :notes))])
+   (for
+     [note (meal :notes)]
+     [:note {} note])
    (if (not= (meal :price-students) "")
      [:price {:role "student"} (meal :price-students)])
    (if (not= (meal :price-employees) "")
