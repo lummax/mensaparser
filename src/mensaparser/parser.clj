@@ -73,7 +73,7 @@
   {:description  (extract-content meal-entry [:td.field-name-field-description])
    :price-students (extract-price meal-entry [:td.field-name-field-price-students])
    :price-employees (extract-price meal-entry [:td.field-name-field-price-employees])
-   :food-types (map #(get food-map %) (re-seq #"food-type-\p{javaLowerCase}+" (:class (:attrs meal-entry))))})
+   :notes (map #(get food-map %) (re-seq #"food-type-\p{javaLowerCase}+" (:class (:attrs meal-entry))))})
 
 (defn categories-mapper
   [food-map category-table]
