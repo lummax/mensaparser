@@ -50,6 +50,20 @@
   [food-plan-data]
   (into {} (map food-mapper (html/select food-plan-data [:ul.food-type-filter :li :a]))))
 
+(defn legend-mapper
+  [legend-data]
+  (apply hash-map (map (fn
+         [element]
+         (if
+           (string? element)
+           (string/replace element #",? *$" "")
+           (first (:content element))))
+       (rest (:content legend-data)))))
+
+(defn generate-legend-map
+  [food-plan-data]
+  (into {} (map legend-mapper (html/select food-plan-data [:div.food-plan-legend :div.legend-data]))))
+
 (defn extract-price
   [entry selection]
   (string/replace (string/replace (extract-content entry selection) #"," ".") #"€" ""))
