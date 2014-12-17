@@ -29,10 +29,9 @@
 
 (defn day-mapper
   [day]
-  (if (not-empty (day :categories))
-    (vec (concat
-           [:day {:date (day :date)}]
-           (mapv category-mapper (filter #(not-empty (% :meals)) (day :categories)))))))
+  (let [categories (mapv category-mapper (filter #(not-empty (% :meals)) (day :categories)))]
+    (if (not-empty categories)
+      (vec (concat [:day {:date (day :date)}] categories)))))
 
 (defn format-food-plan
   [food-plan]
