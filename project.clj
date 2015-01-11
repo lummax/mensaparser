@@ -7,7 +7,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/data.xml "0.0.8"]
                  [enlive "1.1.5"]
-                 [clj-time "0.8.0"]
+                 [clj-time "0.9.0"]
                  [ring/ring-jetty-adapter "1.2.2"]
                  [compojure "1.2.2"]
                  [environ "0.5.0"]]

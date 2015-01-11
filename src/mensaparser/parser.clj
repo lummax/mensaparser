@@ -1,16 +1,11 @@
 (ns mensaparser.parser
-  (:import (java.util Locale)
-           (org.joda.time.format DateTimeFormatter))
+  (:import (java.util Locale))
+
   (:require
     [clojure.string :as string]
     [net.cgrand.enlive-html :as html]
     [clj-time.format :as tftm]
     [clj-time.core :as ttime]))
-
-(defn with-default-year
-  "Return a copy of a formatter that uses the given default year."
-  [^DateTimeFormatter f ^Integer default-year]
-  (.withDefaultYear f default-year))
 
 (defn get-food-plan-data
   [url]
@@ -25,7 +20,7 @@
   (tftm/unparse-local
     (tftm/formatters :year-month-day)
     (tftm/parse-local
-      (with-default-year
+      (tftm/with-default-year
         (tftm/with-locale
           (tftm/formatter "dd. MMM")
           (Locale. "de"))
